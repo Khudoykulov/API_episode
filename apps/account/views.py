@@ -37,6 +37,7 @@ class MyProfileAPIView(generics.ListAPIView):
 
 
 # class PasswordTokenCheckView(generics.GenericAPIView):
+#     serializer_class = ResetPasswordSerializer
 #
 #     def get(self, request, uidb64, token, *args, **kwargs):
 #         try:

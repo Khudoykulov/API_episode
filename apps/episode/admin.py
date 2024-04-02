@@ -1,6 +1,18 @@
 from django.contrib import admin
 
-from .models import Episode, EpisodeComment, EpisodeLike
+from .models import Episode, EpisodeComment, EpisodeLike, Category, Tag
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "created_date")
+    search_fields = ("title", )
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "created_date")
+    search_fields = ("title", )
 
 
 @admin.register(Episode)
