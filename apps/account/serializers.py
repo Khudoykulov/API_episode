@@ -46,7 +46,7 @@ class ResetPasswordSerializer(serializers.ModelSerializer):
         fields = ['email']
 
 
-class SetNewPassworSerializer(serializers.ModelSerializer):
+class SetNewPasswordSerializer(serializers.Serializer):
     password1 = serializers.CharField(max_length=123, write_only=True, min_length=6)
     password2 = serializers.CharField(max_length=123, write_only=True, min_length=6)
     uidb64 = serializers.CharField(max_length=123, required=True)
@@ -69,12 +69,4 @@ class SetNewPassworSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'success': False, 'detail': 'Password did not match'})
         return user
 
-    def create(self, validated_data):
-        password1 = validated_data.pop('password1')
-        password2 = validated_data.pop('password2')
-        uidb64 = validated_data.pop('uidb64')
-        _id = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(id=_id)
-        user.set_password(password1)
-        user.save()
-        return user
+
