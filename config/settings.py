@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+
+import rest_framework.permissions
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -50,8 +52,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt',
-    'django_filters'
-
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'account.User'
