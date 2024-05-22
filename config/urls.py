@@ -40,4 +40,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('acoount/', include('apps.account.urls', namespace='account')),
     path('episode/', include('apps.episode.urls', namespace='episode')),
+    path('', include('apps.main.urls', namespace='main')),
 ]

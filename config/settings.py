@@ -47,12 +47,13 @@ INSTALLED_APPS = [
 
     'apps.account',
     'apps.episode',
-    'apps.contact',
+    'apps.main',
 
     'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
+    'ckeditor'
 ]
 
 AUTH_USER_MODEL = 'account.User'
