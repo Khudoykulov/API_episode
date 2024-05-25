@@ -46,12 +46,12 @@ class Tag(BaseModel):
 class Episode(BaseModel):
     title = models.CharField(max_length=221)
     slug = models.SlugField(max_length=221)
-    author = models.ForeignKey('account.User', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='episode', null=True, blank=True)
-    music = models.FileField(upload_to='episodes/', validators=[FileExtensionValidator(allowed_extensions=['mp3'])])
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey('account.User', on_delete=models.CASCADE, null=True, blank=True)
+    image = models.ImageField(upload_to='episode', null=True, blank=True,)
+    music = models.FileField(upload_to='episodes/', validators=[FileExtensionValidator(allowed_extensions=['mp3'])], null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, null=True, blank=True)
 
     def __str__(self):
         return self.title

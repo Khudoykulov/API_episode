@@ -4,7 +4,7 @@ from apps.episode.models import Episode, Tag
 
 
 class EpisodeFilter(django_filters.FilterSet):
-    category = django_filters.NumberFilter(lookup_name='category')
+    category = django_filters.NumberFilter()
     tags = django_filters.CharFilter(method='filter_by_tags')
 
     def filter_by_tags(self, queryset, name, value):
